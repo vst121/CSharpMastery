@@ -19,6 +19,9 @@ while (true)
     Console.WriteLine("  8. Unsafe Zero-Copy Binary Field Parsing (MemoryMarshal)");
     Console.WriteLine("  9. Lock-Free Bloom Filter Deduplication (XxHash3)");
     Console.WriteLine(" 10. Native AOT & Zero-JIT Inspection");
+    Console.WriteLine(" 11. Distributed gRPC Network Stream Processing");
+    Console.WriteLine(" 12. Transactional Outbox Pattern for Distributed Messaging");
+    Console.WriteLine(" 13. Post-Quantum Tokenized Settlement (Stack-Allocated PQC HMAC)");
     Console.WriteLine("  0. Exit\n");
     Console.Write("Enter choice [0-12]: ");
 
@@ -37,6 +40,10 @@ while (true)
         case "8": UnsafeZeroCopyLab.Run(); break;
         case "9": BloomFilterDeduplicationLab.Run(); break;
         case "10": NativeAotVerificationLab.Run(); break;
+        case "11": await GrpcStreamingLab.RunAsync(); break;
+        case "12": await DistributedOutboxLab.RunAsync(); break;
+        case "13": PqcPaymentSettlementLab.Run(); break;
+
         case "0":
             Console.WriteLine("Exiting engine. Goodbye!");
             return;

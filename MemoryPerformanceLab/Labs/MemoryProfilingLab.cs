@@ -1,10 +1,9 @@
-﻿using System;
+﻿using CSharpMastery.FraudEngine.Models;
+using CSharpMastery.FraudEngine.Services;
 using System.Diagnostics;
 using System.Text.Json;
-using ModernCSharpMastery.FraudEngine.Models;
-using ModernCSharpMastery.FraudEngine.Services;
 
-namespace ModernCSharpMastery.FraudEngine.Labs;
+namespace CSharpMastery.FraudEngine.Labs;
 
 public static class MemoryProfilingLab
 {

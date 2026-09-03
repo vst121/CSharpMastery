@@ -1,8 +1,6 @@
-﻿using System;
-using System.IO.Hashing;
-using System.Threading;
+﻿using System.IO.Hashing;
 
-namespace ModernCSharpMastery.FraudEngine.Services;
+namespace CSharpMastery.FraudEngine.Services;
 
 public sealed class LockFreeBloomFilter
 {

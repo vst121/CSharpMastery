@@ -1,9 +1,7 @@
-﻿using System;
+﻿using CSharpMastery.FraudEngine.Models;
 using System.Collections.Concurrent;
-using System.Threading.Tasks;
-using ModernCSharpMastery.FraudEngine.Models;
 
-namespace ModernCSharpMastery.FraudEngine.Distributed;
+namespace CSharpMastery.FraudEngine.Distributed;
 
 public readonly record struct OutboxMessage(
     Guid MessageId,

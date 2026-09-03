@@ -1,9 +1,8 @@
-﻿using System;
+﻿using CSharpMastery.FraudEngine.Models;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using ModernCSharpMastery.FraudEngine.Models;
 
-namespace ModernCSharpMastery.FraudEngine.Services;
+namespace CSharpMastery.FraudEngine.Services;
 
 public static class UnsafeBinaryParser
 {

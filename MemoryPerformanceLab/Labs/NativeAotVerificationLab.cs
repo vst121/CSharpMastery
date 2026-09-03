@@ -1,7 +1,6 @@
-﻿using System;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
-namespace ModernCSharpMastery.FraudEngine.Labs;
+namespace CSharpMastery.FraudEngine.Labs;
 
 public static class NativeAotVerificationLab
 {

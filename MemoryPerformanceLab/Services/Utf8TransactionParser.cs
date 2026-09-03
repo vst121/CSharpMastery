@@ -1,9 +1,8 @@
-﻿using System;
-using System.Text.Json;
+﻿using CSharpMastery.FraudEngine.Models;
 using System.Numerics;
-using ModernCSharpMastery.FraudEngine.Models;
+using System.Text.Json;
 
-namespace ModernCSharpMastery.FraudEngine.Services;
+namespace CSharpMastery.FraudEngine.Services;
 
 public static class Utf8TransactionParser
 {

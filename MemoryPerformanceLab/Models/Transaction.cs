@@ -1,7 +1,6 @@
-﻿using System;
-using System.Numerics;
+﻿using System.Numerics;
 
-namespace ModernCSharpMastery.FraudEngine.Models;
+namespace CSharpMastery.FraudEngine.Models;
 
 /// <summary>
 /// Immutable transaction record using Generic Math (INumber<T>) for zero-cost numeric flexibility.

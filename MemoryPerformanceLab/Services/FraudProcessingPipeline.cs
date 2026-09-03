@@ -1,12 +1,9 @@
-﻿using System;
+﻿using CSharpMastery.FraudEngine.Models;
 using System.Collections.Concurrent;
 using System.Numerics;
-using System.Threading;
 using System.Threading.Channels;
-using System.Threading.Tasks;
-using ModernCSharpMastery.FraudEngine.Models;
 
-namespace ModernCSharpMastery.FraudEngine.Services;
+namespace CSharpMastery.FraudEngine.Services;
 
 public sealed class FraudProcessingPipeline<TAmount> where TAmount : struct, INumber<TAmount>
 {

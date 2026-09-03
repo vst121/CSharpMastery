@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using ModernCSharpMastery.FraudEngine.Labs;
+﻿using CSharpMastery.FraudEngine.Labs;
 
 Console.WriteLine("==================================================");
 Console.WriteLine("    .NET 10 HIGH-PERFORMANCE FRAUD ENGINE LABS    ");

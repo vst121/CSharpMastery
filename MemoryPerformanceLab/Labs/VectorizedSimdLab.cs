@@ -1,7 +1,6 @@
-﻿using System;
-using ModernCSharpMastery.FraudEngine.Services;
+﻿using CSharpMastery.FraudEngine.Services;
 
-namespace ModernCSharpMastery.FraudEngine.Labs;
+namespace CSharpMastery.FraudEngine.Labs;
 
 public static class VectorizedSimdLab
 {

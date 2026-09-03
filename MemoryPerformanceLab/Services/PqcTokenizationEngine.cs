@@ -1,8 +1,7 @@
-﻿using System;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace ModernCSharpMastery.FraudEngine.Services;
+namespace CSharpMastery.FraudEngine.Services;
 
 public static class PqcTokenizationEngine
 {

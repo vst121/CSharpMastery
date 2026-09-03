@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace ModernCSharpMastery.FraudEngine.Labs;
+﻿namespace CSharpMastery.FraudEngine.Labs;
 
 public static class ResilientApiLab
 {

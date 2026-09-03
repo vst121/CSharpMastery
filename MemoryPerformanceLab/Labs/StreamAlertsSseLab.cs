@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
+﻿using CSharpMastery.FraudEngine.Models;
 using System.Threading.Channels;
-using System.Threading.Tasks;
-using ModernCSharpMastery.FraudEngine.Models;
 
-namespace ModernCSharpMastery.FraudEngine.Labs;
+namespace CSharpMastery.FraudEngine.Labs;
 
 public static class StreamAlertsSseLab
 {

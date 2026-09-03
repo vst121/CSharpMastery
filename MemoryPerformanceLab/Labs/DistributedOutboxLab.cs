@@ -1,9 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using ModernCSharpMastery.FraudEngine.Distributed;
-using ModernCSharpMastery.FraudEngine.Models;
+﻿using CSharpMastery.FraudEngine.Distributed;
+using CSharpMastery.FraudEngine.Models;
 
-namespace ModernCSharpMastery.FraudEngine.Labs;
+namespace CSharpMastery.FraudEngine.Labs;
 
 public static class DistributedOutboxLab
 {

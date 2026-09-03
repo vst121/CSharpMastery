@@ -1,11 +1,8 @@
-﻿using ModernCSharpMastery.FraudEngine.Distributed;
-using ModernCSharpMastery.FraudEngine.Services;
-using System;
-using System.Collections.Generic;
+﻿using CSharpMastery.FraudEngine.Distributed;
+using CSharpMastery.FraudEngine.Services;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 
-namespace ModernCSharpMastery.FraudEngine.Labs;
+namespace CSharpMastery.FraudEngine.Labs;
 
 public static class GrpcStreamingLab
 {

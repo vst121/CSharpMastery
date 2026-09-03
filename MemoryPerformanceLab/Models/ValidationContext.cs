@@ -1,8 +1,7 @@
-﻿using System;
-using System.Numerics;
+﻿using System.Numerics;
 using System.Runtime.CompilerServices;
 
-namespace ModernCSharpMastery.FraudEngine.Models;
+namespace CSharpMastery.FraudEngine.Models;
 
 /// <summary>
 /// Stack-only ref struct ensuring zero heap allocations during payload parsing and validation.

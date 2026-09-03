@@ -1,7 +1,6 @@
-﻿using System;
-using ModernCSharpMastery.FraudEngine.Models;
+﻿using CSharpMastery.FraudEngine.Models;
 
-namespace ModernCSharpMastery.FraudEngine.Labs;
+namespace CSharpMastery.FraudEngine.Labs;
 
 public static class CompileTimeValidationLab
 {

@@ -1,8 +1,7 @@
-﻿using System;
-using ModernCSharpMastery.FraudEngine.Models;
-using ModernCSharpMastery.FraudEngine.Services;
+﻿using CSharpMastery.FraudEngine.Models;
+using CSharpMastery.FraudEngine.Services;
 
-namespace ModernCSharpMastery.FraudEngine.Labs;
+namespace CSharpMastery.FraudEngine.Labs;
 
 public static class ZeroAllocationParsingLab
 {

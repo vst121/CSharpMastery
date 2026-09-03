@@ -1,9 +1,7 @@
-﻿using System;
-using System.Runtime.CompilerServices;
+﻿using CSharpMastery.FraudEngine.Services;
 using System.Runtime.InteropServices;
-using ModernCSharpMastery.FraudEngine.Services;
 
-namespace ModernCSharpMastery.FraudEngine.Labs;
+namespace CSharpMastery.FraudEngine.Labs;
 
 public static class UnsafeZeroCopyLab
 {

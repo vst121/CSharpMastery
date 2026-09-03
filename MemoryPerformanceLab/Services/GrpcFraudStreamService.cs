@@ -1,9 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
-using ModernCSharpMastery.FraudEngine.Models;
-using ModernCSharpMastery.FraudEngine.Services;
+﻿using CSharpMastery.FraudEngine.Services;
 
-namespace ModernCSharpMastery.FraudEngine.Distributed;
+namespace CSharpMastery.FraudEngine.Distributed;
 
 public sealed class GrpcFraudStreamService
 {

@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Folder Name="/Src/" />
+  <Folder Name="/Src/Performance/">
+    <Project Path="MemoryPerformanceLab/MemoryPerformanceLab.csproj" Id="1739250b-ee4e-47a1-8980-08c194ca4605" />
+  </Folder>
+</Solution>

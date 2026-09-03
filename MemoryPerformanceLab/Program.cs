@@ -1,37 +1,59 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
-using ModernCSharpMastery.FraudEngine;
+using ModernCSharpMastery.FraudEngine.Labs;
 
-Console.WriteLine("=== High-Performance Fraud & Duplication Engine ===\n");
+Console.WriteLine("==================================================");
+Console.WriteLine("    .NET 10 HIGH-PERFORMANCE FRAUD ENGINE LABS    ");
+Console.WriteLine("==================================================\n");
 
-var pipeline = new FraudProcessingPipeline<decimal>(capacity: 500);
-using var cts = new CancellationTokenSource();
+while (true)
+{
+    Console.WriteLine("Select a lab to execute:");
+    Console.WriteLine("  1. Zero-Allocation UTF-8 Parsing (Span<byte> / Utf8JsonReader)");
+    Console.WriteLine("  2. SIMD Vectorized Batch Duplicate Scan (Vector128<T>)");
+    Console.WriteLine("  3. High-Throughput Concurrent Pipeline (Channels / ValueTask)");
+    Console.WriteLine("  4. Memory Allocation Profiling (Utf8Parser vs JsonSerializer)");
+    Console.WriteLine("  5. Compile-Time Fast Validation (Generated Validator)");
+    Console.WriteLine("  6. Live Fraud Alert Streaming (Server-Sent Events / IAsyncEnumerable)");
+    Console.WriteLine("  7. Resilient External Risk API Calls (Retry & Backoff)");
+    Console.WriteLine("  0. Exit\n");
+    Console.Write("Enter choice [0-8]: ");
 
-// 1. Spin up background workers
-var processingTask = pipeline.StartProcessingWorkersAsync(
-    workerCount: Environment.ProcessorCount,
-    onFraudDetected: async (tx) =>
+    var choice = Console.ReadLine()?.Trim();
+    Console.WriteLine();
+
+    switch (choice)
     {
-        Console.WriteLine($"[ALERT - FRAUD DETECTED] High Value Tx: {tx.TransactionId} | Amount: ${tx.Amount}");
-        await ValueTask.CompletedTask;
-    },
-    cts.Token
-);
+        case "1":
+            ZeroAllocationParsingLab.Run();
+            break;
+        case "2":
+            VectorizedSimdLab.Run();
+            break;
+        case "3":
+            await ConcurrencyPipelineLab.RunAsync();
+            break;
+        case "4":
+            MemoryProfilingLab.Run();
+            break;
+        case "5":
+            CompileTimeValidationLab.Run();
+            break;
+        case "6":
+            await StreamAlertsSseLab.RunAsync();
+            break;
+        case "7":
+            await ResilientApiLab.RunAsync();
+            break;
+        case "0":
+            Console.WriteLine("Exiting engine. Goodbye!");
+            return;
+        default:
+            Console.WriteLine("Invalid option. Try again.");
+            break;
+    }
 
-// 2. Simulating incoming payload streaming
-var txId = Guid.NewGuid();
-var tx1 = new Transaction<decimal>(txId, AccountId: 1001, Amount: 15000.50m, TimestampTicks: DateTime.UtcNow.Ticks);
-var txDuplicate = new Transaction<decimal>(txId, AccountId: 1001, Amount: 15000.50m, TimestampTicks: DateTime.UtcNow.Ticks);
-var txNormal = new Transaction<decimal>(Guid.NewGuid(), AccountId: 1002, Amount: 250.00m, TimestampTicks: DateTime.UtcNow.Ticks);
-
-// 3. Publish transactions
-Console.WriteLine($"Publishing Tx 1: {await pipeline.PublishAsync(tx1)}");
-Console.WriteLine($"Publishing Tx 1 (Duplicate Check): {await pipeline.PublishAsync(txDuplicate)}"); // Returns false
-Console.WriteLine($"Publishing Tx 2 (Normal): {await pipeline.PublishAsync(txNormal)}");
-
-// Complete channel and wait for processing
-pipeline.CompleteIngress();
-await processingTask;
-
-Console.WriteLine("\n=== Processing Completed Safely ===");
+    Console.WriteLine("\nPress Enter to return to menu...");
+    Console.ReadLine();
+    Console.Clear();
+}

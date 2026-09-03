@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
+using ModernCSharpMastery.FraudEngine.Models;
 
-namespace ModernCSharpMastery.FraudEngine;
+namespace ModernCSharpMastery.FraudEngine.Services;
 
 public sealed class FraudProcessingPipeline<TAmount> where TAmount : struct, INumber<TAmount>
 {
@@ -15,7 +15,6 @@ public sealed class FraudProcessingPipeline<TAmount> where TAmount : struct, INu
 
     public FraudProcessingPipeline(int capacity = 1000)
     {
-        // Bounded channel enforces backpressure when ingress exceeds processing capacity
         var options = new BoundedChannelOptions(capacity)
         {
             SingleWriter = false,
@@ -25,13 +24,11 @@ public sealed class FraudProcessingPipeline<TAmount> where TAmount : struct, INu
         _channel = Channel.CreateBounded<Transaction<TAmount>>(options);
     }
 
-    // High-performance ingress method using ValueTask to eliminate task allocations
     public ValueTask<bool> PublishAsync(Transaction<TAmount> transaction, CancellationToken ct = default)
     {
-        // Fast-path inline duplication check
         if (_seenTransactions.ContainsKey(transaction.TransactionId))
         {
-            return ValueTask.FromResult(false); // Duplicate detected before queueing
+            return ValueTask.FromResult(false);
         }
 
         if (_channel.Writer.TryWrite(transaction))
@@ -50,7 +47,6 @@ public sealed class FraudProcessingPipeline<TAmount> where TAmount : struct, INu
         return true;
     }
 
-    // Worker Engine: Concurrent Consumers pulling from Channel
     public async Task StartProcessingWorkersAsync(int workerCount, Func<Transaction<TAmount>, ValueTask> onFraudDetected, CancellationToken ct)
     {
         var workers = new Task[workerCount];
@@ -67,10 +63,8 @@ public sealed class FraudProcessingPipeline<TAmount> where TAmount : struct, INu
         Func<Transaction<TAmount>, ValueTask> onFraudDetected,
         CancellationToken ct)
     {
-        // ReadAllAsync natively optimizes enumerator allocations in modern .NET
         await foreach (var tx in reader.ReadAllAsync(ct))
         {
-            // Evaluate Fraud Rule: High Value Threshold
             if (tx.Amount > TAmount.CreateChecked(10000))
             {
                 await onFraudDetected(tx);

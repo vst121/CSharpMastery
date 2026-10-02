@@ -1,8 +1,6 @@
 # Modern C# Mastery
 
-## .NET 10 Architecture Patterns & Performance
-
-It has two main parts:
+## .NET 10 Advanced Topics
 
 1. ArchitectureLab
    Review Archtectural Patterns

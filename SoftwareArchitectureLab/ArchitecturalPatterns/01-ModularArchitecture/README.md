@@ -37,8 +37,6 @@ Feature A ──→ Service B ──→ Repository C
 Feature E ─────────┘
 ```
 
-````
-
 The result is increasing:
 
 - coupling
@@ -1004,6 +1002,3 @@ Before considering a modular architecture healthy, verify:
 9. **Modularity should reduce the cost of change.**
 
 10. **The strongest boundary is one that is understandable, enforceable, observable, and evolvable.**
-
-```
-````
